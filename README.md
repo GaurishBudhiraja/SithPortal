@@ -77,5 +77,6 @@ We added:
 - **Interactive motion effects** to make the UI dynamic and alive
 
 Deployment Link-https://sithporal-abhinavas-projects-d4adcd49.vercel.app/login
+Youtube Link - https://youtu.be/iuMYSqNVVjw?si=IIfqAcDFS55NLgsU
 --
 When you're working you must connect your own Database link(MONGO DB), currently we are using localhost server and port.
