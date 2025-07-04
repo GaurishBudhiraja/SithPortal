@@ -6,7 +6,7 @@ Welcome to **SITHPORTAL**, a full-stack Star Wars–inspired social media web ap
 
 ---
 
-## 🚀 What is SITHPORTA?
+## 🚀 What is SITHPORTAL?
 
 **SITHPORTA** is a modern, immersive social media platform where users can:
 - Send **friend requests**
