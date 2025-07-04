@@ -77,3 +77,4 @@ We added:
 - **Interactive motion effects** to make the UI dynamic and alive
 
 --
+When you're working you must connect your own Database link(MONGO DB), currently we are using localhost server and port.
