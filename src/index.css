@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Sith-themed cursor - increased size */
+
+/* index.css */
+
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+
+* {
+  cursor: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 32 32">\
+  <g transform="rotate(-45 16 16)">\
+    <rect x="15" y="2" width="2" height="20" rx="1" fill="%23ff1a1a"/>\
+    <circle cx="16" cy="24" r="3" fill="%23374151"/>\
+    <rect x="13" y="21" width="6" height="4" rx="1" fill="%23374151"/>\
+  </g>\
+</svg>') 0 0, auto;
+}
+
+
+button, a, input, textarea {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="15" y="2" width="2" height="20" fill="%23ef4444" rx="1"/><circle cx="16" cy="24" r="3" fill="%23374151"/><rect x="13" y="21" width="6" height="4" fill="%23374151" rx="1"/></svg>'), pointer;
+}
+
+/* Space background with moving asteroids */
+.space-bg {
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.space-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(2px 2px at 160px 30px, #fff, transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: moveStars 20s linear infinite;
+}
+
+.space-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 50px 50px, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 100px 100px, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 150px 150px, rgba(255,255,255,0.5), transparent);
+  background-repeat: repeat;
+  background-size: 300px 200px;
+  animation: moveStars 30s linear infinite;
+}
+
+@keyframes moveStars {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Rocket transition */
+.rocket-transition {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  animation: rocketLaunch 2s ease-in-out forwards;
+}
+
+@keyframes rocketLaunch {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2) rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2) rotate(360deg);
+  }
+}
+
+/* Password strength bar */
+.password-strength-bar {
+  height: 4px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.strength-weak { background: linear-gradient(90deg, #dc2626 0%, #dc2626 33%, #374151 33%); }
+.strength-medium { background: linear-gradient(90deg, #f59e0b 0%, #f59e0b 66%, #374151 66%); }
+.strength-strong { background: linear-gradient(90deg, #10b981 0%, #10b981 100%); }
+
+/* Sith glow effects */
+.sith-glow {
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.3), 0 0 40px rgba(220, 38, 38, 0.1);
+}
+
+.sith-glow-strong {
+  box-shadow: 0 0 30px rgba(220, 38, 38, 0.5), 0 0 60px rgba(220, 38, 38, 0.2);
+}
+
+.sith-text-glow {
+  text-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+}
+
+/* Animated background */
+.sith-bg {
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 25%, #0f0f0f 50%, #1a1a1a 75%, #0f0f0f 100%);
+  background-size: 400% 400%;
+  animation: sithPulse 8s ease-in-out infinite;
+}
+
+@keyframes sithPulse {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Lightsaber button effect */
+.lightsaber-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.lightsaber-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.lightsaber-btn:hover::before {
+  left: 100%;
+}
+
+.lightsaber-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+}
+
+/* Enhanced post card hover effects */
+.post-card {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(220, 38, 38, 0.2);
+  border-color: rgba(220, 38, 38, 0.3);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dc2626;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ef4444;
+}
+
+/* Post animations */
+.post-enter {
+  animation: postSlideIn 0.3s ease-out;
+}
+
+@keyframes postSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Like animation */
+.like-pulse {
+  animation: likePulse 0.3s ease-in-out;
+}
+
+@keyframes likePulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Online status indicators */
+.status-online {
+  background-color: #10b981;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.status-offline {
+  background-color: #ef4444;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+/* Profile picture upload area */
+.profile-upload {
+  border: 2px dashed rgba(220, 38, 38, 0.5);
+  transition: all 0.3s ease;
+}
+
+.profile-upload:hover {
+  border-color: rgba(220, 38, 38, 0.8);
+  background-color: rgba(220, 38, 38, 0.1);
+}
+
+.profile-upload.dragover {
+  border-color: #dc2626;
+  background-color: rgba(220, 38, 38, 0.2);
+}
+
+/* Input focus effects */
+input:focus, textarea:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+/* Shared post widget */
+.shared-post-widget {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(55, 65, 81, 0.1) 100%);
+  border-left: 4px solid #dc2626;
+}

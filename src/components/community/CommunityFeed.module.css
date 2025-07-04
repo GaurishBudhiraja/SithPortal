@@ -1,0 +1,23 @@
+/* CommunityFeed.module.css */
+.parallax-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100%;
+  position: relative;
+}
+
+.snap-section {
+  scroll-snap-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.snap-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
